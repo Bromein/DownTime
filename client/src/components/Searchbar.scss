@@ -1,0 +1,60 @@
+.searchbar-wrapper {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .input-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 10rem;
+    max-width: 50rem;
+  }
+
+  h2 {
+    padding: 1rem 0;
+    max-width: 60rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .searchbar {
+    &__icon {
+      fill: #283655;
+      height: 2rem;
+      width: 2rem;
+    }
+
+    &__input {
+      background-color: #f2f3f2;
+      width: 90%;
+      padding: 0.5rem 2rem;
+      min-height: 4rem;
+      font-size: 2rem;
+      border: none;
+      border-radius: 1.5rem;
+      transition: all 0.2s ease;
+      margin-right: -3.25rem;
+
+      &:focus {
+        outline: none;
+        width: 100%;
+      }
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  .btn {
+    border: 0;
+    background-color: transparent;
+  }
+}

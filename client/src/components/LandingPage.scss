@@ -1,3 +1,57 @@
 .landing-page {
-  grid-column: 2 / 4;
+  grid-column: 1 / -1;
+  color: #283655;
+  display: flex;
+  flex-direction: column;
+  // grid-template-columns: 1px 20rem 20rem 1px;
+  margin: 2rem 0;
+  padding: 5rem 0;
+  // grid-template-columns: 15rem repeat(4, minmax(15rem, auto)) 15rem;
+
+  .section1 {
+    margin: 0 auto;
+    min-height: 500px;
+    padding: 5rem;
+
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 75%,
+      75% 75%,
+      75% 100%,
+      50% 75%,
+      0% 75%
+    );
+    background-color: #eaeaea;
+
+    &::before {
+      content: "";
+    }
+
+    &__info {
+    }
+    h1 {
+      color: #283655;
+      font-size: 5rem;
+      max-width: 50rem;
+    }
+
+    p {
+      padding: 1rem 0;
+      max-width: 60rem;
+      font-size: 1.5rem;
+      letter-spacing: 0.1rem;
+    }
+  }
+
+  .section2 {
+    background-color: #283655;
+    color: #f2f3f2;
+    min-height: 400px;
+    margin-top: -3rem;
+    padding: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

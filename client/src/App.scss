@@ -15,6 +15,7 @@ body {
   min-height: 100vh;
   min-width: 100vw;
   font-family: "Helvetica", sans-serif;
+  background-color: #eaeaea;
 }
 
 .wrapper {
@@ -22,7 +23,7 @@ body {
   min-width: 100%;
   min-height: 100%;
   display: grid;
-  grid-template-columns: 15vw repeat(2, 1fr) 15vw;
+  grid-template-columns: 15vw repeat(2, minmax(20rem, 1fr)) 15vw;
   grid-template-rows: repeat(auto-fit, minmax(1rem, auto));
   a {
     text-decoration: none;
