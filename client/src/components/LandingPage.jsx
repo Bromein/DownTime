@@ -5,7 +5,7 @@ import Searchbar from "./Searchbar";
 
 import "./LandingPage.scss";
 
-const LandingPage = () => {
+const LandingPage = ({ items }) => {
   return (
     <div className="landing-page">
       <div className="section1">
@@ -24,6 +24,11 @@ const LandingPage = () => {
 
       <div className="section2">
         <Searchbar title="Curious?" subtitle="Browse our food database 🔎" />
+      </div>
+      <div>
+        {items.map((item, idx) => (
+          <div key={item.name}>{`${item.name}: ${item.calories}`}</div>
+        ))}
       </div>
     </div>
   );
