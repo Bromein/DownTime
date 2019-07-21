@@ -12,7 +12,7 @@ const Searchbar = ({ title, subtitle, value, onFormSubmit, onInputChange }) => {
         <input
           placeholder="Get the nutritional info for any food"
           className="searchbar__input"
-          type="search"
+          type="text"
           value={value}
           onChange={e => onInputChange(e)}
         />

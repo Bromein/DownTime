@@ -29,7 +29,7 @@ app.get("/foods/:name", (req, res) => {
     .then(food => {
       // !! CONVERT ME TO ASYNCAWAIT/TRYCATCH temporarily using if else to catch err, !! \\
       if (food.length) {
-        res.json(food[0]);
+        res.json(food);
       } else {
         res.status(400).json("Is this real life?");
       }

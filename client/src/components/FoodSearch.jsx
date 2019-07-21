@@ -6,7 +6,8 @@ class FoodSearch extends React.Component {
     super();
 
     this.state = {
-      search: ""
+      search: "",
+      food: []
     };
   }
 
@@ -22,7 +23,7 @@ class FoodSearch extends React.Component {
 
     fetch(`/foods/${this.state.search}`)
       .then(res => res.json())
-      .then(res => console.log(res));
+      .then(res => this.setState({ food: res }));
     this.setState({ search: "" });
   };
 
@@ -36,6 +37,14 @@ class FoodSearch extends React.Component {
           title="Curious?"
           subtitle="Browse our food database 🔎"
         />
+        {this.state.food.map(item => {
+          return (
+            <div className="foodItem">
+              <h1>{item.name}</h1>
+              <p>{item.calories}</p>
+            </div>
+          );
+        })}
       </div>
     );
   }
