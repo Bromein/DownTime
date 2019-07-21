@@ -18,13 +18,13 @@ const DATABASE = knex({
 //   .from("foods")
 //   .then(data => console.log(data));
 
-app.get("/foods/:id", (req, res) => {
-  const { id } = req.params;
-  console.log(req.params, id);
+app.get("/foods/:name", (req, res) => {
+  const { name } = req.params;
+  console.log(req.params, name);
   DATABASE.select("*")
     .from("foods")
     .where({
-      id
+      name
     })
     .then(food => {
       // !! CONVERT ME TO ASYNCAWAIT/TRYCATCH temporarily using if else to catch err, !! \\
@@ -34,7 +34,9 @@ app.get("/foods/:id", (req, res) => {
         res.status(400).json("Is this real life?");
       }
     })
-    .catch(err => res.status(400).json("Unable to get your entries", err));
+    .catch(err =>
+      res.status(400).json("We can't seem to find that vegetable.")
+    );
 });
 
 app.listen(8080, () => console.log("***Server started on port 8080***"));

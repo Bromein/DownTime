@@ -1,7 +1,8 @@
 import React from "react";
 
 import Button from "./Button";
-import Searchbar from "./Searchbar";
+
+import FoodSearch from "./FoodSearch";
 
 import "./LandingPage.scss";
 
@@ -23,12 +24,7 @@ const LandingPage = ({ items }) => {
       </div>
 
       <div className="section2">
-        <Searchbar title="Curious?" subtitle="Browse our food database 🔎" />
-      </div>
-      <div>
-        {items.map((item, idx) => (
-          <div key={item.name}>{`${item.name}: ${item.calories}`}</div>
-        ))}
+        <FoodSearch />
       </div>
     </div>
   );
