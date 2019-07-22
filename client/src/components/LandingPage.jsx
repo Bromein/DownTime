@@ -6,7 +6,7 @@ import FoodSearch from "./FoodSearch";
 
 import "./LandingPage.scss";
 
-const LandingPage = ({ items }) => {
+const LandingPage = ({ history }) => {
   return (
     <div className="landing-page">
       <div className="section1">
@@ -18,14 +18,11 @@ const LandingPage = ({ items }) => {
             Take control of your goals. Track calories, breakdown ingredients,
             and log activities with DownTime.
           </p>
-          <Button text="START FOR FREE" />
+          <Button takeMeTo="/signup" history={history} text="START FOR FREE" />
           <p className="section1__info">Already have an account? Login</p>
         </div>
       </div>
-
-      <div className="section2">
-        <FoodSearch />
-      </div>
+      <FoodSearch />
     </div>
   );
 };

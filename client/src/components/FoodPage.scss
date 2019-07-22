@@ -1,0 +1,28 @@
+.foodpage {
+  grid-column: 2 / 4;
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: #999;
+  &__header {
+    font-size: 5rem;
+  }
+
+  &__content {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+    padding: 2.5rem;
+    background-color: #f2f3f2;
+    border-radius: 0.4rem;
+    align-content: space-around;
+  }
+
+  &__item {
+    padding: 1rem;
+    text-transform: capitalize;
+  }
+}

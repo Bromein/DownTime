@@ -2,10 +2,15 @@ import React from "react";
 
 import "./Button.scss";
 
-const Button = ({ text }) => {
+// ? this button allows linking if provided with a takeMeTo prop <Button takeMeTo="/" />
+
+const Button = ({ text, history, takeMeTo, ...otherProps }) => {
   return (
     <div className="btn-container">
-      <button className="btn--start">
+      <button
+        onClick={takeMeTo ? () => history.push(`${takeMeTo}`) : null}
+        className="btn--start"
+      >
         <span>{text}</span>
       </button>
     </div>
