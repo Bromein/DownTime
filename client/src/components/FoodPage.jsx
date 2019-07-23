@@ -15,14 +15,34 @@ class FoodPage extends React.Component {
   componentDidMount() {
     fetch("/foodlist")
       .then(res => res.json())
-      .then(data => this.setState({ foods: data }));
+      .then(data => this.setState({ foods: [...data] }));
   }
+
+  handleFoodRemoval = (e, item) => {
+    const currentItem = item;
+
+    fetch("/foods/deletefood/", {
+      method: "DELETE",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ id: item.id })
+    }).then(res => {
+      // whew lad that was a doosy // console.log("success");
+      this.setState(prevState => ({
+        foods: prevState.foods.filter(item => item.id !== currentItem.id)
+      }));
+    });
+  };
 
   render() {
     const { history } = this.props;
     return (
       <div className="foodpage">
-        <div className="foodpage__header">Browse Our List Of Foods!</div>
+        <div className="foodpage__header">
+          Browse our community driven food database
+        </div>
         <div className="foodpage__content">
           {this.state.foods.map(item => (
             <div key={item.id} className="foodpage__item">
@@ -31,7 +51,11 @@ class FoodPage extends React.Component {
                 <p>{item.calories} Calories</p>
                 <p>per {item.size}</p>
               </span>
-              <Delete className="foodpage__delete" />
+
+              <Delete
+                className="foodpage__delete"
+                onClick={(e, id) => this.handleFoodRemoval(e, item)}
+              />
             </div>
           ))}
         </div>

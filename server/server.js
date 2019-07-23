@@ -53,4 +53,12 @@ app.post("/foods/addfood/", (req, res) => {
     .then(res.status(200).json("Thanks for your submission!"));
 });
 
+app.delete("/foods/deletefood/", (req, res) => {
+  const { id } = req.body;
+  DATABASE("foods")
+    .where({ id })
+    .del()
+    .then(res.status(200).json("Deleted!"));
+});
+
 app.listen(8080, () => console.log("***Server started on port 8080***"));
