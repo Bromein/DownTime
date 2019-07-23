@@ -25,10 +25,13 @@ class FoodPage extends React.Component {
           {this.state.foods.map(item => (
             <div key={item.id} className="foodpage__item">
               <h2>{item.name}</h2>
-              <p>{item.calories}</p>
+              <p>{item.calories} Calories</p>
               <p>per {item.size}</p>
             </div>
           ))}
+        </div>
+        <div className="cantfind">
+          <p>Can't find the food you were looking for? Add it</p>
         </div>
       </div>
     );

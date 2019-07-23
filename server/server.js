@@ -4,6 +4,9 @@ const knex = require("knex");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 const DATABASE = knex({
   client: "pg",
   connection: {
@@ -34,13 +37,20 @@ app.get("/foods/:name", (req, res) => {
 });
 
 app.get("/foodlist", (req, res) => {
-  DATABASE.select("*")
+  DATABASE.select()
     .from("foods")
     .then(foods => res.json(foods));
 });
 
 app.post("/signin", (req, res) => {
   res.json("signin");
+});
+
+app.post("/addfood/:name", (req, res) => {
+  const { name, calories, size } = req.body;
+  DATABASE("foods")
+    .insert({ name, calories, size })
+    .then(res.status(200).json("Thanks for your submission!"));
 });
 
 app.listen(8080, () => console.log("***Server started on port 8080***"));
