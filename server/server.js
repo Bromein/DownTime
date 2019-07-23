@@ -46,7 +46,7 @@ app.post("/signin", (req, res) => {
   res.json("signin");
 });
 
-app.post("/addfood/:name", (req, res) => {
+app.post("/foods/addfood/", (req, res) => {
   const { name, calories, size } = req.body;
   DATABASE("foods")
     .insert({ name, calories, size })

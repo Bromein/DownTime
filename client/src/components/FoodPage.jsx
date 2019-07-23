@@ -1,13 +1,14 @@
 import React from "react";
-
 import "./FoodPage.scss";
+import { ReactComponent as Delete } from "../assets/cross.svg";
 
 class FoodPage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      foods: []
+      foods: [],
+      addingFood: false
     };
   }
 
@@ -18,21 +19,35 @@ class FoodPage extends React.Component {
   }
 
   render() {
+    const { history } = this.props;
     return (
       <div className="foodpage">
         <div className="foodpage__header">Browse Our List Of Foods!</div>
         <div className="foodpage__content">
           {this.state.foods.map(item => (
             <div key={item.id} className="foodpage__item">
-              <h2>{item.name}</h2>
-              <p>{item.calories} Calories</p>
-              <p>per {item.size}</p>
+              <span>
+                <h2>{item.name}</h2>
+                <p>{item.calories} Calories</p>
+                <p>per {item.size}</p>
+              </span>
+              <Delete className="foodpage__delete" />
             </div>
           ))}
         </div>
-        <div className="cantfind">
-          <p>Can't find the food you were looking for? Add it</p>
-        </div>
+        {this.state.addingFood ? null : (
+          <div className="cantfind">
+            <p>
+              Can't find the food you were looking for?{" "}
+              <span
+                className="addfood__link"
+                onClick={() => history.push("/foods/addfood")}
+              >
+                Add it
+              </span>
+            </p>
+          </div>
+        )}
       </div>
     );
   }

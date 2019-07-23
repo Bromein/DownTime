@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import LandingPage from "./components/LandingPage";
 import SignUp from "./components/SignUp";
 import FoodPage from "./components/FoodPage";
+import AddFood from "./components/AddFood";
 
 class App extends React.Component {
   render() {
@@ -14,11 +15,11 @@ class App extends React.Component {
       <div className="wrapper">
         <Header />
         <Navbar />
-        <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/foods" component={FoodPage} />
-        </Switch>
+
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/foods" component={FoodPage} />
+        <Route exact path="/foods/addfood" component={AddFood} />
       </div>
     );
   }

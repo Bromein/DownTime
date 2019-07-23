@@ -17,19 +17,20 @@
 
   &__content {
     align-self: stretch;
-    display: flex;
-    flex-direction: column;
     margin-top: 2.5rem;
     padding: 2.5rem;
     background-color: #f2f3f2;
     border-radius: 0.4rem;
     overflow-y: scroll;
-    height: 100%;
+    max-height: 50vh;
   }
 
   &__item {
+    display: flex;
     padding: 1rem;
     text-transform: capitalize;
+    justify-content: space-between;
+    align-items: center;
 
     &:nth-child(even) {
       color: black;
@@ -37,8 +38,28 @@
     }
   }
 
+  &__delete {
+    justify-self: flex-end;
+    fill: rgba(255, 0, 0, 0.2);
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+
+    &:hover {
+      fill: red;
+    }
+  }
+
   .cantfind {
     margin-top: 1rem;
     color: white;
+  }
+
+  .addfood__link {
+    cursor: pointer;
+    transition: 0.2s ease-in;
+
+    &:hover {
+      color: #dd919d;
+    }
   }
 }
