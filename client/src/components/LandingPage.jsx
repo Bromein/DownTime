@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import Button from "./Button";
 
 import FoodSearch from "./FoodSearch";
@@ -19,7 +19,10 @@ const LandingPage = ({ history }) => {
             and log activities with DownTime.
           </p>
           <Button takeMeTo="/signup" history={history} text="START FOR FREE" />
-          <p className="section1__info">Already have an account? Login</p>
+          <p className="section1__info">
+            Already have an account?
+            <Link to="/signin"> Login</Link>
+          </p>
         </div>
       </div>
       <FoodSearch />

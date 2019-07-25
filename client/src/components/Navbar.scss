@@ -1,10 +1,10 @@
 .navbar {
   font-size: 1.2rem;
-  background-color: #283655;
+  background-color: rgb(34, 143, 207);
   color: #eaeaea;
   grid-column: 1 / -1;
   padding: 1rem;
-  border-bottom: 1px solid rgba(89, 112, 175, 0.5);
+  border-bottom: 1px solid rgba(34, 143, 207, 0.5);
 
   &__items {
     display: flex;

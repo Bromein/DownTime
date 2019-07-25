@@ -1,6 +1,6 @@
 .addfood {
-  padding: 5rem;
-  margin: 5rem auto;
+  padding-top: 5rem;
+  // margin: 5rem auto;
   grid-column: 2 / 4;
   justify-self: center;
 
@@ -14,9 +14,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(221, 145, 157, 0.1);
+    background-color: rgba(212, 166, 86, 0.1);
     color: black;
     border-radius: 4px;
+    box-shadow: 0 0 0.85rem 0 rgba(0, 0, 0, 0.2);
   }
   &__label {
     padding: 2rem;
@@ -28,6 +29,7 @@
   &__input {
     outline: none;
     background-color: #f2f3f2;
+    box-shadow: 0 0 0.85rem 0 rgba(0, 0, 0, 0.1);
     width: 90%;
     padding: 0.5rem 2rem;
     min-height: 4rem;
@@ -36,7 +38,7 @@
     border-radius: 1.5rem;
     transition: all 0.2s ease;
     margin-right: -3.25rem;
-    color: #dd919d;
+    color: #d4a656;
     text-transform: capitalize;
 
     &:focus {
@@ -60,14 +62,14 @@
     border: 0;
     cursor: pointer;
     padding: 1.6rem 3.2rem;
-    background-color: #95242a;
+    background-color: rgba(212, 166, 86, 0.75);
     font-size: 1.5rem;
     font-weight: 600;
     color: #eaeaea;
     transition: all 0.2s ease;
 
     &:hover {
-      background-color: #dd919d;
+      background-color: rgba(212, 166, 86, 1);
       color: black;
     }
   }

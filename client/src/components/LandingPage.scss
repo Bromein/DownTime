@@ -3,8 +3,8 @@
   color: #283655;
   display: flex;
   flex-direction: column;
-  margin: 2rem 0;
-  padding: 5rem 0;
+  margin-top: 2rem;
+  padding-top: 5rem;
 
   .section1 {
     margin: 0 auto;
@@ -20,10 +20,13 @@
       50% 75%,
       0% 75%
     );
-    background-color: #eaeaea;
+    background-color: #f1f1f1;
     z-index: 3;
 
     &__info {
+      a {
+        color: yellow;
+      }
     }
 
     h1 {
@@ -40,7 +43,10 @@
     }
 
     a {
-      color: #283655;
+      color: rgba(212, 166, 86, 0.75);
+      &:hover {
+        color: #d4a656;
+      }
     }
   }
 
