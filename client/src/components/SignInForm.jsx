@@ -3,14 +3,44 @@ import React from "react";
 import "./SignInForm.scss";
 
 class SignInForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       email: "",
       password: ""
     };
   }
+
+  handleSubmit = (e, props) => {
+    e.preventDefault();
+    if (this.handleInputValidation(this.state)) {
+      fetch("/register", {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: this.state.email,
+          password: this.state.password
+        })
+      }).then(res => console.log(res));
+      this.props.history.push("/");
+    } else {
+      alert("something went wrong");
+    }
+
+    // fetch("/register")
+  };
+
+  handleInputChange = e => {
+    const fieldName = e.target.name;
+    const fieldValue = e.target.value;
+    fieldName === "agreeToTerms"
+      ? this.setState({ agreeToTerms: !this.state.agreeToTerms })
+      : this.setState({ [fieldName]: fieldValue });
+  };
 
   render() {
     return (
